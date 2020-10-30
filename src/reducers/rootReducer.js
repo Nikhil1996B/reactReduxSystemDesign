@@ -15,6 +15,6 @@ const __actionReducer = (__actionType) =>
     UPDATE_DATA: initalState,
   }[__actionType]);
 
-const createRecords = () => fetchData().then((data) => data);
+const createRecords = () => fetchData().then((data) => JSON.stringify(data));
 
 export default rootReducer;
