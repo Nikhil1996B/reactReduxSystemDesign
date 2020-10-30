@@ -40,6 +40,7 @@ const post = (url, payload) => {
     .then(__parseJSON).catch(err => console.log(err));
 };
 
+// Fetch the data from mapped url
 export const fetchData = () => {
   let url = urlMapper ? urlMapper.fetchDataRequest : '';
   return get(url, '');

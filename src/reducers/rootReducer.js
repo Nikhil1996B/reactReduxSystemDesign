@@ -13,9 +13,8 @@ const __actionReducer = (__actionType) =>
       records: createRecords(),
     },
     UPDATE_DATA: initalState,
-    "@@INIT": initalState,
   }[__actionType]);
 
-const createRecords = () => fetchData().then((data) => console.log(data));
+const createRecords = () => fetchData().then((data) => data);
 
 export default rootReducer;

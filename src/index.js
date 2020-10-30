@@ -6,10 +6,12 @@ import { createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers/rootReducer";
 
+const enhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
 const store = createStore(
   rootReducer,
   compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    enhancers
   )
 );
 
