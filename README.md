@@ -4,13 +4,17 @@ IBM System design table module used to design react redux app
 ### `yarn install` // Install the node package dependencies
 ### `yarn start`  // start dev server at https://localhost:3000
 
-####### application structure
+##Source code directory structure
 
-| --- |
- | -- components -- | \\ directory to create application components
- ||  ---- DataTable.js --- || \\ IBM system design databale function
- || ------ reducers -----||
- || ------ actions ------ ||
- || App.js ----> useEffect/ useDispatch used to listen to actions and manipulate store //
+```
+src
+|--components // 
+|  |--DataTable
+
+|--reducers 
+|  |--Actionpayload //Will contain only http request response logic in isolation with framework and business logic
+|  |--rrot reducers  //Will contain reducers to deduce actions
+|  |  |--index.js
+|  |  |--index.spec.js
 
  
