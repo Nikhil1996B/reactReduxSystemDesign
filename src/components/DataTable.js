@@ -30,8 +30,8 @@ const DataTableComponent = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={`${row.id.toString()}`}>
+              {rows.map((row, index) => (
+                <TableRow key={index}>
                   {row.cells.map((cell) => (
                     <TableCell key={cell.id}>{cell.value}</TableCell>
                   ))}

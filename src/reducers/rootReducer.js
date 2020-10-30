@@ -1,4 +1,5 @@
 import { fetchData } from "./Actionpaylaod";
+import { DATA_LOADED, DATA_LOADING, UPDATE_DATA, FETCH_DATA } from "../actions/Actions"
 
 // Reducer to create initial store for application
 const rootReducer = (state = initalState, action) =>
