@@ -1,6 +1,7 @@
 import { DATA_LOADED, DATA_LOADING } from "../actions/Actions"
 
 // fetch the users from API
+const URL_MAPPER = { fetchData: "https://jsonplaceholder.typicode.com/users" }
 const __checkStatus = response => {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -13,10 +14,32 @@ const __checkStatus = response => {
 const __parseJSON = response => {
   return response.json();
 };
+const __parseParamsToQuery = params => {
+  if (!params) return '';
+  return (
+    '?' +
+    Object.keys(params)
+      .map(key => key + '=' + encodeURI(params[key]))
+      .join('&')
+  );
+};
 
-
-export const fetchData = () =>
-  fetch("https://jsonplaceholder.typicode.com/users")
+const get = (url, params) => {
+  const queryString = __parseParamsToQuery(params);
+  return fetch(url + queryString, { credentials: 'same-origin' })
     .then(__checkStatus)
-    .then(__parseJSON)
-    .catch((err) => console.log("Somethin went wrong!", err));
+    .then(__parseJSON).catch(err => console.log(err));
+};
+const post = (url, payload) => {
+  return fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  })
+    .then(__checkStatus)
+    .then(__parseJSON).catch(err => console.log(err));
+};
+
+export const fetchData = () => {
+  let url = URL_MAPPER[fetchData];
+  return get(url);
+};
