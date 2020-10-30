@@ -4,7 +4,7 @@ import DataTableComponent from "./components/DataTable";
 import "./App.css";
 
 function App() {
-  const profiles = useSelector((state) => state.records);
+  // const profiles = useSelector((state) => state.records);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "FETCH_DATA" });
