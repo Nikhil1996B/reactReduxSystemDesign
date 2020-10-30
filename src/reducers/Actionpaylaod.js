@@ -1,7 +1,8 @@
 import { DATA_LOADED, DATA_LOADING } from "../actions/Actions"
 
 // fetch the users from API
-const URL_MAPPER = { fetchData: "https://jsonplaceholder.typicode.com/users" }
+const urlMapper = { fetchDataRequest: "https://jsonplaceholder.typicode.com/users" };
+
 const __checkStatus = response => {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -40,6 +41,6 @@ const post = (url, payload) => {
 };
 
 export const fetchData = () => {
-  let url = URL_MAPPER[fetchData];
-  return get(url);
+  let url = urlMapper ? urlMapper.fetchDataRequest : '';
+  return get(url, '');
 };
