@@ -27,6 +27,7 @@ export const __checkStatus = response => {
       .then(__checkStatus)
       .then(__parseJSON).catch(err => console.log(err));
   };
+  
   export const post = (url, payload) => {
     return fetch(url, {
       method: 'POST',
