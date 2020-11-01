@@ -14,10 +14,10 @@ const initalState = { records: null, loading: false, error: null };
 function reducer(state = initalState, action) {
   console.log(action);
   if (action.type == DATA_LOADING) {
-    return Object.assign({}, state, { records: action.payload });
+    return { ...state, records: action.payload, loading: true, error: null };
   }
   if (action.type == DATA_LOADED) {
-    return { records: Object.assign({}, state, { records: action.payload }) };
+    return { ...state, records: action.payload, loading: false, error: false };
   } else if (action.type == UPDATE_DATA) {
     return state;
   } else {

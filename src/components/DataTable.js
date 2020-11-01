@@ -28,13 +28,13 @@ class DataTableComponent extends Component {
   }
 
   render() {
-    const { records } = this.props.records;
+    const { records } = this.props.records ? this.props.records : [];
     console.log("records", records);
     return this.props.loading ? (
       "...Loading"
     ) : (
       <DataTable
-        rows={rowData}
+        rows={records ? records : rowData}
         headers={headerData}
         render={({ rows, headers, getHeaderProps, getTableProps }) => (
           <TableContainer title="JSON TYPICODE DATA TABLE">
@@ -67,5 +67,6 @@ class DataTableComponent extends Component {
 
 const mapStateToProps = (state) => ({
   records: state.records,
+  loading: state.laoding,
 });
 export default connect(mapStateToProps, { fetchData })(DataTableComponent);
