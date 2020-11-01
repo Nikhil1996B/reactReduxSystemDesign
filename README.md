@@ -8,13 +8,23 @@ IBM System design table module used to design react redux app
 
 ```
 src
-|--components // 
-|  |--DataTable
+|--
+|--HTTP //Will contain only http request response logic in isolation with framework and business logic
+|  |--Components
+|  |--HTTP  //Will contain core HTTP request response logic
+|  |  |--helpers.js
+|--Reducers
+|  |--Reducers.js
 
-|--reducers 
-|  |--Actionpayload //Will contain only http request response logic in isolation with framework and business logic
-|  |--rrot reducers  //Will contain reducers to deduce actions
-|  |  |--index.js
-|  |  |--index.spec.js
+|  |....
+|--Actions
+|  |--Actions.js
+|  |....
+|  |
+.  .....
+....
+
+```
+
 
  
